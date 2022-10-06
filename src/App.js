@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+ import "./css/style.css";
+ import "bootstrap/dist/css/bootstrap.css";
+ import Tabela from "./Tabela";
 
-function App() {
+ function Button (props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <a href={props.destino} className="btn btn-primary">{props.children}</a>
+  )
+ }
+ 
+ export default function App() {
+  let estilo = {
+    backgroundColor: 'red',
+    color: 'white'
+  }
 
-export default App;
+  let titulo = 'Indetifique-se'
+
+  return (
+    <div>
+      <h1 className="text-center">{titulo}</h1>
+
+      <hr/>
+
+      <form>
+        <input className="form" placeholder="Email"/>
+        <input className="form" placeholder="Senha"/>
+        <button style={estilo}>Entrar</button>
+
+        <Button destino="https://google.com.br">Cadastro</Button>
+        <Button>TESTE</Button>
+        <button>TESTE</button>
+      </form>
+
+    <Tabela/>
+    </div>
+  )
+}
